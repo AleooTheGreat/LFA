@@ -46,7 +46,7 @@ int main(){
 
     in >> m;
 
-    for(int i = 0 ; i < m; i++){
+    for(int i = 0 ; i < n; i++){
         vector<int> aux;
         for(int j = 0 ; j < 26; j++){
             aux.push_back(-1);
