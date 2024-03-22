@@ -16,7 +16,9 @@ bool solve(const vector<int>& nod,const vector<int>& final, vector<vector<list<i
         int size = q.size();
 
         while(size--){
-            auto [st, currPath] = q.front(); q.pop();
+            auto [st, currPath] = q.front();
+            q.pop();
+
             if(v[st][a].front() != -1){
                 for(auto it : v[st][a]){
                     vector<int> newPath = currPath;
@@ -34,7 +36,8 @@ bool solve(const vector<int>& nod,const vector<int>& final, vector<vector<list<i
     }
 
     while(!q.empty()){
-        auto [st, currPath] = q.front(); q.pop();
+        auto [st, currPath] = q.front();
+        q.pop();
         if(find(final.begin(), final.end(), st) != final.end()){
             path = currPath;
             return true;
@@ -74,7 +77,7 @@ int main(){
     for(int i = 0 ; i < m ; i++){
         int x,y, xx, yy;
         char l;
-        in >> x >> y >> l;
+        in >> x >> l >> y;
 
         for(int j = 0 ; j < n; j++){
             if(x == nod[j]){
