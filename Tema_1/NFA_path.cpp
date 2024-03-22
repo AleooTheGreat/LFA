@@ -74,7 +74,7 @@ int main(){
     for(int i = 0 ; i < m ; i++){
         int x,y, xx, yy;
         char l;
-        in >> x >> l >> y;
+        in >> x >> y >> l;
 
         for(int j = 0 ; j < n; j++){
             if(x == nod[j]){
