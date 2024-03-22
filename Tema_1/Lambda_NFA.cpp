@@ -10,7 +10,6 @@ queue<int> lambda_goes(int n, queue<int> q1,vector<vector<list<int>>> v) {
 
     set<int> aux;
 
-
     while (!q1.empty()) {
         int st = q1.front();
 

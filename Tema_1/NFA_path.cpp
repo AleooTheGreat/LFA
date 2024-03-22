@@ -5,46 +5,39 @@
 
 using namespace std;
 
-bool solve(const vector<int>& nod,const vector<int>& final, vector<vector<list<int>>> v, int st, string cuv){
+bool solve(const vector<int>& nod,const vector<int>& final, vector<vector<list<int>>> v, int st, string cuv, vector<int>& path){
 
     int c = 0;
-    queue<int> q1,q2;
-    q1.push(st);
+    queue<pair<int, vector<int>>> q;
+    q.push({st, {}});
 
     while(c != (cuv.length())){
         int a = cuv[c] - 97;
+        int size = q.size();
 
-        while(!q1.empty()){
-            st = q1.front();
-
+        while(size--){
+            auto [st, currPath] = q.front(); q.pop();
             if(v[st][a].front() != -1){
-                for(auto it:v[st][a]){
-                    q2.push(it);
+                for(auto it : v[st][a]){
+                    vector<int> newPath = currPath;
+                    newPath.push_back(it);
+                    q.push({it, newPath});
                 }
             }
-            q1.pop();
         }
 
-        if(!q2.empty()){
-            q1.swap(q2);
+        if(!q.empty()){
             c++;
         }else{
             return false;
         }
     }
 
-    vector<int> sol;
-
-    while(!q1.empty()){
-        sol.push_back(q1.front());
-        q1.pop();
-    }
-
-    for(auto i : final){
-        for(auto it : sol) {
-            if (it == i) {
-                return true;
-            }
+    while(!q.empty()){
+        auto [st, currPath] = q.front(); q.pop();
+        if(find(final.begin(), final.end(), st) != final.end()){
+            path = currPath;
+            return true;
         }
     }
 
@@ -124,13 +117,22 @@ int main(){
     for(int i = 0 ; i < nr_cuv; i++){
 
         string cuv;
+        vector<int> path;
 
         in >> cuv;
 
-        if(solve(nod, final, v, st, cuv)){
-            out<<"DA"<<'\n';
-        }else{
-            out<<"NU"<<'\n';
+        int st_afis = st;
+
+        if(solve(nod, final, v, st, cuv, path)){
+            out << "DA" << '\n';
+            out << nod[st_afis] << " ";
+
+            for(int state : path) {
+                out << nod[state] << " ";
+            }
+            out << '\n';
+        } else{
+            out << "NU" << '\n';
         }
     }
 }
