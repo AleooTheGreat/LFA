@@ -1,8 +1,0 @@
-/Users/aleoo/LFA/cmake-build-debug/CMakeFiles/Main.dir
-/Users/aleoo/LFA/cmake-build-debug/CMakeFiles/DFA.dir
-/Users/aleoo/LFA/cmake-build-debug/CMakeFiles/Lambda_NFA.dir
-/Users/aleoo/LFA/cmake-build-debug/CMakeFiles/NFA_Path.dir
-/Users/aleoo/LFA/cmake-build-debug/CMakeFiles/NFA.dir
-/Users/aleoo/LFA/cmake-build-debug/CMakeFiles/Test.dir
-/Users/aleoo/LFA/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/aleoo/LFA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
