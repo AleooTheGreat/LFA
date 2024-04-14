@@ -22,7 +22,7 @@ queue<int> lambda_goes(int n, queue<int> q1,vector<vector<list<int>>> v) {
         queue<int> q;
         f[st] = true;
         q.push(st);
-
+ 
         while (!q.empty()) {
             int currentNode = q.front();
             aux.insert(currentNode);
