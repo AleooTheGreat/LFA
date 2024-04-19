@@ -2,10 +2,10 @@
 // Created by aleoo on 4/15/24.
 //
 
-#include "Tema_2/headers/NFA_to_DFA.h"
 #include <fstream>
 #include <map>
 #include <algorithm>
+#include "NFA_to_DFA.h"
 
 /// Citirea se face dupa dormatul acesta :
 /// 3  -> numarul de stari

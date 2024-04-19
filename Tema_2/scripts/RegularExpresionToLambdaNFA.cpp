@@ -7,6 +7,18 @@
 
 using namespace std;
 
+///Exemplu de parcurgere: (a|b)*abb
+/*
+Expresia începe cu (, deci parseFactor ar apela parseExpr.
+În interiorul parseExpr, întâlnește a|b. Apelează parseTerm pentru a, și apoi,
+după ce sare peste |, apelează parseTerm din nou pentru b.Pentru ambele a și b,
+parseFactor creează NFA-uri simple cu două stări.
+parseExpr combină aceste două NFA-uri într-un NFA nou care începe cu o tranziție ε către ambele a
+și b.După finalizarea sub-expresiei (a|b), funcția vede *. parseFactor modifică apoi
+NFA pentru a repeta sub-expresia. Partea rămasă a expresiei, abb, este gestionată prin
+apeluri repetate la parseFactor, adăugând stări și tranziții pentru fiecare caracter.
+*/
+
 struct Nfa {
     int n;
     vector<vector<pair<int, int>>> g;
@@ -22,11 +34,11 @@ struct Nfa {
     }
 
     void print() {
-        cout << "Start State: " << start << "\n";
-        cout << "Edges (from, to, char):\n";
+        cout << "Starea initiala: " << start << "\n";
+        cout << "Muchiile (from, to, char):\n";
         for (int i = 0; i < (int)g.size(); i++) {
             for (auto& p : g[i]) {
-                cout << i << " -> " << p.first << " by ";
+                cout << i << " -> " << p.first << " cu ";
                 if (p.second == 26)
                     cout << "#";
                 else
@@ -34,7 +46,7 @@ struct Nfa {
                 cout << "\n";
             }
         }
-        cout << "Final States: ";
+        cout << "Stari finale : ";
         for (int fin : finalStates)
             cout << fin << " ";
         cout << "\n";
@@ -168,7 +180,7 @@ Nfa parseRegexToNfa(const string& s) {
 
 int main() {
     string regex;
-    cout << "Enter a regular expression: ";
+    cout << "Insereaza o expresie regulata: ";
     cin >> regex;
 
     Nfa nfa = parseRegexToNfa(regex);
