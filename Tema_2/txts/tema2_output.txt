@@ -1,0 +1,17 @@
+DFA State: { 0 }:
+  Utilizand 'a' mergem in starea { 01 }
+  Utilizand 'b' mergem in starea { 2 }
+DFA State: { 0 1 }:
+  Utilizand 'a' mergem in starea { 01 }
+  Utilizand 'b' mergem in starea { 12 }
+DFA State: { 1 2 }:
+  Utilizand 'a' mergem in starea { 0 }
+  Utilizand 'b' mergem in starea { 01 }
+DFA State: { 2 }:
+  Utilizand 'a' mergem in starea { 4 }
+  Utilizand 'b' mergem in starea { 01 }
+DFA State: { 4 }:
+  Utilizand 'a' mergem in starea { 4 }
+  Utilizand 'b' mergem in starea { 4 }
+Starea initiala este : { 0 }
+Stariile finale sunt : { 01 1 12 2 }

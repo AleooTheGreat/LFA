@@ -3,7 +3,8 @@
 //
 
 #include <iostream>
+#include "Tema_2/headers/NFA_to_DFA.h"
 
 int main(){
-    std::cout << "Haide Robert! Stim ca poti! Sa nu mai ai segfault ;(" <<'\n';
+    NFA_to_DFA();
 }
